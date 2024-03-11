@@ -7,11 +7,14 @@ const Confirmation = ({ sala, hora, fecha, equipo } ) => {
         speak({text:""})
     }
     const { speak, voices,cancel } = useSpeechSynthesis({onEnd});
-    const spanishVoice = voices.find(voice => voice.lang === 'es-ES');
+    const spanishVoice = voices[61];
+    
 
     useEffect(() => {
-        speak({ text: "¡Todo listo! Estamos preparando todo para tu llegada, Recibirás una confirmación en tu correo electrónico institucional en el caso de cualquier movimiento relacionado con tu reservación" , voice: spanishVoice,});
-    }, []);
+        console.log(voices)
+        speak({ text: "Todo listo, Estamos preparando todo para tu llegada, Recibirás una confirmación en tu correo electrónico institucional en el caso de cualquier movimiento relacionado con tu reservación" , voice: spanishVoice,});
+        
+    }, [speak]);
 
     return (
         <div>
